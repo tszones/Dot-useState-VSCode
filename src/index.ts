@@ -40,7 +40,7 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
     if (this.position && this.config && typeof label === 'string') {
       const config = this.config.find((config) => config.trigger === label);
       item.command = {
-        command: 'dot-log-replace',
+        command: 'dot-setstate-replace',
         title: 'refactor',
         arguments: [this.position.translate(0, label.length + 1), config],
       };
@@ -71,7 +71,7 @@ export function activate(context: vscode.ExtensionContext) {
     new GoCompletionItemProvider(configList),
     '.'
   );
-  const command = 'dot-log-replace';
+  const command = 'dot-setstate-replace';
   const commandHandler = (
     editor: vscode.TextEditor,
     edit: vscode.TextEditorEdit,
@@ -118,11 +118,6 @@ export function activate(context: vscode.ExtensionContext) {
         if (config.hideName === true) {
           insertVal = `${config.format}(${key})`;
         } else {
-          console.log(quote, "quote");
-          console.log(prefix, "prefix");
-          console.log(key, "key");
-          console.log(quote, "quote");
-
           let setKey = "set" + key[0].toUpperCase() + key.slice(1);
           // insertVal = `${config.format}(${quote}${prefix}${key}${suffix}${quote},${key})`;
           insertVal = `const [${key}, ${setKey}] = useState()`;
