@@ -1,3 +1,7 @@
+## 基于dotLot改变
+原地址 [dot-log](https://github.com/jaluik/dot-log)
+
+
 # Dot Log
 
 A vscode extension that uses **.log** to log params to the console.

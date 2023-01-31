@@ -59,29 +59,14 @@
     "configuration": {
       "title": "DotLog",
       "properties": {
-        "dotLog.config": {
+        "dotSetState.config": {
           "type": "array",
           "description": "Customize how to log the result.",
           "default": [
             {
-              "trigger": "log",
-              "description": "quick console.log result",
+              "trigger": "setState",
+              "description": "quick setState",
               "format": "console.log"
-            },
-            {
-              "trigger": "clg",
-              "description": "quick console.log result",
-              "format": "console.log"
-            },
-            {
-              "trigger": "cwa",
-              "description": "quick console.warn result",
-              "format": "console.warn"
-            },
-            {
-              "trigger": "cer",
-              "description": "quick console.err result",
-              "format": "console.error"
             }
           ],
           "items": {

@@ -44,6 +44,7 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
         title: 'refactor',
         arguments: [this.position.translate(0, label.length + 1), config],
       };
+      
     }
 
     return item;
@@ -51,10 +52,10 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const dotLogConfig: vscode.WorkspaceConfiguration =
-    vscode.workspace.getConfiguration('dotLog');
+  const dotSetStateConfig: vscode.WorkspaceConfiguration =
+    vscode.workspace.getConfiguration('dotSetState');
 
-  const configList: ConfigItem[] | undefined = dotLogConfig.get('config');
+  const configList: ConfigItem[] | undefined = dotSetStateConfig.get('config');
   if (!configList) {
     return;
   }
@@ -117,7 +118,14 @@ export function activate(context: vscode.ExtensionContext) {
         if (config.hideName === true) {
           insertVal = `${config.format}(${key})`;
         } else {
-          insertVal = `${config.format}(${quote}${prefix}${key}${suffix}${quote},${key})`;
+          console.log(quote, "quote");
+          console.log(prefix, "prefix");
+          console.log(key, "key");
+          console.log(quote, "quote");
+
+          let setKey = "set" + key[0].toUpperCase() + key.slice(1);
+          // insertVal = `${config.format}(${quote}${prefix}${key}${suffix}${quote},${key})`;
+          insertVal = `const [${key}, ${setKey}] = useState()`;
         }
       }
       // if key is string format like console.log("xxx")
