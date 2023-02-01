@@ -1,10 +1,6 @@
-## 基于dotLot改变
-
-原地址 [dot-log](https://github.com/jaluik/dot-log)
+# Dot useState
 
 ## 项目地址
-
-# Dot Log
 
 A vscode extension that uses **.useState** to const [abc, setAbc] = useState()
 
@@ -19,4 +15,8 @@ xxx.useStateString => const [xxx, setXxx] = useState('')
 
 ![img](https://github.com/genius1123/dot-setstate/blob/main/public/show.gif)
 
-MIT © [jaluik](https://github.com/jaluik)
+MIT ©
+
+## 基于dotLot改变
+
+原地址 [dot-log](https://github.com/jaluik/dot-log)
