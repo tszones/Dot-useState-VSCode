@@ -40,7 +40,7 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
     if (this.position && this.config && typeof label === 'string') {
       const config = this.config.find((config) => config.trigger === label);
       item.command = {
-        command: 'dot-setstate-replace',
+        command: 'dot-usestate-replace',
         title: 'refactor',
         arguments: [this.position.translate(0, label.length + 1), config],
       };
@@ -52,10 +52,10 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const dotSetStateConfig: vscode.WorkspaceConfiguration =
-    vscode.workspace.getConfiguration('dotSetState');
+  const dotuseStateConfig: vscode.WorkspaceConfiguration =
+    vscode.workspace.getConfiguration('dotuseState');
 
-  const configList: ConfigItem[] | undefined = dotSetStateConfig.get('config');
+  const configList: ConfigItem[] | undefined = dotuseStateConfig.get('config');
   if (!configList) {
     return;
   }
@@ -71,7 +71,7 @@ export function activate(context: vscode.ExtensionContext) {
     new GoCompletionItemProvider(configList),
     '.'
   );
-  const command = 'dot-setstate-replace';
+  const command = 'dot-usestate-replace';
   const commandHandler = (
     editor: vscode.TextEditor,
     edit: vscode.TextEditorEdit,

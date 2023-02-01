@@ -1,11 +1,11 @@
 {
-  "name": "dot-setstate",
-  "displayName": "Dot setstate",
-  "description": "Make it easy to setstate info",
+  "name": "dot-usestate",
+  "displayName": "Dot useState",
+  "description": "Make it easy to useState info",
   "publisher": "sz",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "keywords": [
-    "setstate"
+    "setstate", "useState"
   ],
   "engines": {
     "vscode": "^1.61.0"
@@ -55,9 +55,9 @@
   },
   "contributes": {
     "configuration": {
-      "title": "dotSetState",
+      "title": "dotuseState",
       "properties": {
-        "dotSetState.config": {
+        "dotuseState.config": {
           "type": "array",
           "description": "Customize how to useState the result.",
           "default": [
