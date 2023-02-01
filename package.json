@@ -59,11 +59,32 @@
       "properties": {
         "dotSetState.config": {
           "type": "array",
-          "description": "Customize how to setState the result.",
+          "description": "Customize how to useState the result.",
           "default": [
             {
-              "trigger": "setState",
-              "description": "quick setState"
+              "trigger": "useState",
+              "description": "quick useState",
+              "format": "useState()"
+            },
+            {
+              "trigger": "useStateArray",
+              "description": "quick useState",
+              "format": "useState([])"
+            },
+            {
+              "trigger": "useStateString",
+              "description": "quick useState",
+              "format": "useState('')"
+            },
+            {
+              "trigger": "useStateFalse",
+              "description": "quick useState",
+              "format": "useState(false)"
+            },
+            {
+              "trigger": "useStateObj",
+              "description": "quick useState",
+              "format": "useState({})"
             }
           ],
           "items": {

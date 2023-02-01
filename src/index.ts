@@ -120,7 +120,7 @@ export function activate(context: vscode.ExtensionContext) {
         } else {
           let setKey = "set" + key[0].toUpperCase() + key.slice(1);
           // insertVal = `${config.format}(${quote}${prefix}${key}${suffix}${quote},${key})`;
-          insertVal = `const [${key}, ${setKey}] = useState()`;
+          insertVal = `const [${key}, ${setKey}] = ${config.format}`;
         }
       }
       // if key is string format like console.log("xxx")
