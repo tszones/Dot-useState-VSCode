@@ -5,7 +5,8 @@
   "publisher": "sz",
   "version": "1.0.2",
   "keywords": [
-    "setstate", "useState"
+    "setstate",
+    "useState"
   ],
   "engines": {
     "vscode": "^1.61.0"

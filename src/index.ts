@@ -8,6 +8,7 @@ interface ConfigItem {
   prefix: string;
   suffix: string;
 }
+
 class GoCompletionItemProvider implements vscode.CompletionItemProvider {
   position?: vscode.Position;
   config: ConfigItem[];
@@ -56,9 +57,11 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.workspace.getConfiguration('dotuseState');
 
   const configList: ConfigItem[] | undefined = dotuseStateConfig.get('config');
+  
   if (!configList) {
     return;
   }
+
   const options = vscode.languages.registerCompletionItemProvider(
     [
       'html',
@@ -71,7 +74,9 @@ export function activate(context: vscode.ExtensionContext) {
     new GoCompletionItemProvider(configList),
     '.'
   );
+
   const command = 'dot-usestate-replace';
+
   const commandHandler = (
     editor: vscode.TextEditor,
     edit: vscode.TextEditorEdit,
@@ -79,25 +84,29 @@ export function activate(context: vscode.ExtensionContext) {
     config: ConfigItem
   ) => {
     const lineText = editor.document.lineAt(position.line).text;
-    // match case name.log etc.
+
     const matchVarReg = new RegExp(
       `\(\[^\\s\]*\[^\'\"\`\]\).${config.trigger}$`
     );
-    // match case 'name'.log etc.  /(['"`])([^'"])\1.log/
+
     const matchStrReg = new RegExp(
       `\(\[\'\"\`\]\)\(\[^\'\"\`\]*\)\\1\.${config.trigger}$`
     );
+
     let matchFlag: 'var' | 'str' = 'var';
-    let text,
-      key,
-      quote = "'",
-      insertVal = '';
+
+    let text;
+    let key;        
+    let quote = "'";
+    let insertVal = '';
+    
     [text, key] = lineText.match(matchVarReg) || [];
+
     if (!key) {
       [text, quote, key] = lineText.match(matchStrReg) || [];
       matchFlag = 'str';
     }
-    // if matched
+
     if (key) {
       const index = lineText.indexOf(text);
       edit.delete(
@@ -112,14 +121,11 @@ export function activate(context: vscode.ExtensionContext) {
       if (matchFlag === 'var' && key.includes("'")) {
         quote = '"';
       }
-      // format like console.log("xxx", xxx)
       if (matchFlag === 'var') {
-        //  only console.log(xxx)
         if (config.hideName === true) {
           insertVal = `${config.format}(${key})`;
         } else {
           let setKey = "set" + key[0].toUpperCase() + key.slice(1);
-          // insertVal = `${config.format}(${quote}${prefix}${key}${suffix}${quote},${key})`;
           insertVal = `const [${key}, ${setKey}] = ${config.format}`;
         }
       }
