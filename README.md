@@ -1,6 +1,6 @@
 # VSCode Dot UseState Extension
 
-The VSCode React UseState Extension is a utility that allows you to quickly generate `useState` code snippets for React in Visual Studio Code. It helps you save time by automatically generating the boilerplate code for declaring state variables and their corresponding setter functions.
+The VSCode Dot UseState Extension is a utility that allows you to quickly generate `useState` code snippets for React in Visual Studio Code. It helps you save time by automatically generating the boilerplate code for declaring state variables and their corresponding setter functions.
 
 ## Features
 
