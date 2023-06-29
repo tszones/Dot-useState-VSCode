@@ -1,10 +1,17 @@
-# Dot useState
+# VSCode Dot UseState Extension
 
-## 项目地址
+The VSCode React UseState Extension is a utility that allows you to quickly generate `useState` code snippets for React in Visual Studio Code. It helps you save time by automatically generating the boilerplate code for declaring state variables and their corresponding setter functions.
 
-A vscode extension that uses **.useState** to const [abc, setAbc] = useState()
+## Features
+
+- Provides code snippets for `useState` declarations in React.
+- Supports different types of state variables, including arrays, objects, strings, and default values.
 
 ## Usage
+
+To use the extension, follow these steps:
+
+1. Open a JavaScript or TypeScript file in Visual Studio Code.
 
 ```javascript
 xxx.useState => const [xxx, setXxx] = useState()
@@ -13,10 +20,14 @@ xxx.useStateObj => const [xxx, setXxx] = useState({})
 xxx.useStateString => const [xxx, setXxx] = useState('')
 ```
 
-![img](https://github.com/genius1123/dot-setstate/blob/main/public/show.gif)
+Replace `xxx` with your desired state variable name.
 
-MIT ©
+![img](https://github.com/code-cola-js/Dot-useState-VSCode/blob/main/public/show.gif)
 
-## 基于dotLot改变
+## License
 
-原地址 [dot-log](https://github.com/jaluik/dot-log)
+This extension is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions or suggestions regarding the VSCode Dot UseState Extension, feel free to contact me at [codeCola.js@outlook.com].
