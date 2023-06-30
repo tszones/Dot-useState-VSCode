@@ -30,4 +30,5 @@ const extensionConfig = {
   },
   devtool: "nosources-source-map",
 };
+
 module.exports = [extensionConfig];
